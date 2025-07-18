@@ -1,0 +1,6 @@
+---
+- name: Install libreoffice via Homebrew Cask
+  community.general.homebrew_cask:
+    name: "{{ libreoffice_cask_name }}"
+    state: present
+    update_homebrew: true

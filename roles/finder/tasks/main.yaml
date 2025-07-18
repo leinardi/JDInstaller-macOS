@@ -1,0 +1,32 @@
+---
+- name: Show path bar in Finder
+  community.general.osx_defaults:
+    domain: com.apple.finder
+    key: ShowPathbar
+    type: bool
+    value: "{{ finder_show_pathbar }}"
+    state: present
+
+- name: Sort folders first in Finder
+  community.general.osx_defaults:
+    domain: com.apple.finder
+    key: _FXSortFoldersFirst
+    type: bool
+    value: "{{ finder_sort_folders_first }}"
+    state: present
+
+- name: Disable extension‑change warning in Finder
+  community.general.osx_defaults:
+    domain: com.apple.finder
+    key: FXEnableExtensionChangeWarning
+    type: bool
+    value: "{{ finder_enable_extension_change_warning }}"
+    state: present
+
+- name: Save new documents to disk by default
+  community.general.osx_defaults:
+    domain: NSGlobalDomain
+    key: NSDocumentSaveNewDocumentsToCloud
+    type: bool
+    value: "{{ finder_save_to_cloud }}"
+    state: present

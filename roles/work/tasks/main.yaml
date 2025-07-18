@@ -1,0 +1,10 @@
+---
+- name: Update Homebrew and install work formulae
+  community.general.homebrew:
+    name: "{{ work_formulae }}"
+    state: present
+    update_homebrew: true
+
+- name: Upgrade all installed Homebrew formulae
+  community.general.homebrew:
+    upgrade_all: true

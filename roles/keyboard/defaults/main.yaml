@@ -1,0 +1,6 @@
+---
+keyboard_enabled: true
+keyboard_press_and_hold_enabled: false
+keyboard_fn_state: true
+keyboard_key_repeat: 2.0
+keyboard_initial_key_repeat: 25.0

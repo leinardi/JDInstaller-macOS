@@ -1,0 +1,67 @@
+---
+- name: MacOS Common Playbook
+  hosts: localhost
+  roles:
+    - role: homebrew
+      tags: homebrew
+      when: homebrew_enabled | bool
+    - role: common
+      tags: common
+      when: common_enabled | bool
+    - role: keyboard
+      tags: keyboard
+      when: keyboard_enabled | bool
+    - role: mouse
+      tags: mouse
+      when: mouse_enabled | bool
+    - role: finder
+      tags: finder
+      when: finder_enabled | bool
+    - role: desktop_and_dock
+      tags: desktop_and_dock
+      when: desktop_and_dock_enabled | bool
+    - role: file_associations
+      tags: file_associations
+      when: file_associations_enabled | bool
+    - role: alt_tab
+      tags: alt_tab
+      when: alt_tab_enabled | bool
+    - role: coteditor
+      tags: coteditor
+      when: coteditor_enabled | bool
+    - role: firefox
+      tags: firefox
+      when: firefox_enabled | bool
+    - role: ghostty
+      tags: ghostty
+      when: ghostty_enabled | bool
+    - role: gimp
+      tags: gimp
+      when: gimp_enabled | bool
+    - role: karabiner_elements
+      tags: karabiner_elements
+      when: karabiner_elements_enabled | bool
+    - role: kdiff3
+      tags: kdiff3
+      when: kdiff3_enabled | bool
+    - role: keka
+      tags: keka
+      when: keka_enabled | bool
+    - role: libreoffice
+      tags: libreoffice
+      when: libreoffice_enabled | bool
+    - role: linearmouse
+      tags: linearmouse
+      when: linearmouse_enabled | bool
+    - role: rectangle
+      tags: rectangle
+      when: rectangle_enabled | bool
+    - role: stats
+      tags: stats
+      when: stats_enabled | bool
+    - role: utm
+      tags: utm
+      when: utm_enabled | bool
+    - role: vlc
+      tags: vlc
+      when: vlc_enabled | bool

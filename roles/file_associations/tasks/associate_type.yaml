@@ -1,0 +1,15 @@
+---
+- name: Get current default for {{ filetype }}
+  ansible.builtin.shell:
+    cmd: |
+      set -o pipefail
+      infat info --type {{ filetype }} | awk -F': ' '/^Default app:/ {print $2}' | sed 's/\.app.*//'
+    executable: /bin/bash
+  register: current_default
+  changed_when: false
+
+- name: Set default app for {{ filetype }}
+  ansible.builtin.command:
+    cmd: infat set {{ target_app }} --type {{ filetype }}
+  when: current_default.stdout != target_app
+  changed_when: true

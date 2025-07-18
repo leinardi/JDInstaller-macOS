@@ -1,0 +1,15 @@
+---
+common_enabled: true
+common_formulae:
+  - bash
+  - bash-completion
+  - gnupg
+  - gnutls
+  - htop
+  - terminal-notifier
+  - the_silver_searcher
+  - tree
+  - vim
+  - wget
+
+common_default_shell_path: "/opt/homebrew/bin/bash"

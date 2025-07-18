@@ -1,0 +1,22 @@
+---
+development_enabled: true
+development_formulae:
+  - actionlint
+  - ansible
+  - ansible-lint
+  - git
+  - jq
+  - mypy
+  - pgformatter
+  - pinentry
+  - pinentry-mac
+  - poetry
+  - pre-commit
+  - prettier
+  - python@3.12
+  - python
+  - reviewdog
+  - shellcheck
+  - sqlfluff
+  - tig
+  - yamllint

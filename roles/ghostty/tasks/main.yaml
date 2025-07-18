@@ -1,0 +1,25 @@
+---
+- name: Install ghostty via Homebrew Cask
+  community.general.homebrew_cask:
+    name: "{{ ghostty_cask_name }}"
+    state: present
+    update_homebrew: true
+
+- name: Ensure Ghostty config directory exists
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/ghostty"
+    state: directory
+    mode: "0755"
+
+- name: Check for existing Ghostty configuration
+  ansible.builtin.stat:
+    path: "{{ ansible_env.HOME }}/.config/ghostty/config"
+  register: ghostty_config
+
+- name: Copy default Ghostty config if missing
+  ansible.builtin.copy:
+    src: ghostty/config
+    dest: "{{ ansible_env.HOME }}/.config/ghostty/config"
+    force: no
+    mode: "0644"
+  when: not ghostty_config.stat.exists

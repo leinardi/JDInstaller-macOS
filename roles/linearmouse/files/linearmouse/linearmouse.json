@@ -1,0 +1,48 @@
+{
+  "$schema" : "https:\/\/schema.linearmouse.app\/0.10.0",
+  "schemes" : [
+    {
+      "if" : {
+        "device" : {
+          "productID" : "0x84",
+          "vendorID" : "0x1532",
+          "category" : "mouse",
+          "productName" : "Razer DeathAdder V2"
+        }
+      },
+      "scrolling" : {
+        "speed" : {
+          "vertical" : 20
+        },
+        "modifiers" : {
+          "vertical" : {
+            "control" : {
+              "type" : "auto"
+            },
+            "shift" : {
+              "type" : "auto"
+            },
+            "option" : {
+              "type" : "auto"
+            },
+            "command" : {
+              "type" : "zoom"
+            }
+          }
+        },
+        "distance" : {
+          "vertical" : "auto"
+        },
+        "acceleration" : {
+          "vertical" : 0.5,
+          "horizontal" : 1
+        }
+      },
+      "pointer" : {
+        "speed" : 0.25,
+        "acceleration" : 0,
+        "disableAcceleration" : false
+      }
+    }
+  ]
+}

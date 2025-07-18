@@ -1,0 +1,24 @@
+---
+- name: Enable linear mouse tracking
+  community.general.osx_defaults:
+    domain: NSGlobalDomain
+    key: com.apple.mouse.linear
+    type: bool
+    value: "{{ mouse_linear }}"
+    state: present
+
+- name: Set mouse tracking speed
+  community.general.osx_defaults:
+    domain: NSGlobalDomain
+    key: com.apple.mouse.scaling
+    type: float
+    value: "{{ mouse_scaling }}"
+    state: present
+
+- name: Disable natural scrolling
+  community.general.osx_defaults:
+    domain: NSGlobalDomain
+    key: com.apple.swipescrolldirection
+    type: bool
+    value: "{{ mouse_natural_scroll }}"
+    state: present

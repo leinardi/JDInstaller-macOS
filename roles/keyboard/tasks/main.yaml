@@ -1,0 +1,32 @@
+---
+- name: Disable press-and-hold to favor key repeat
+  community.general.osx_defaults:
+    domain: NSGlobalDomain
+    key: ApplePressAndHoldEnabled
+    type: bool
+    value: "{{ keyboard_press_and_hold_enabled }}"
+    state: present
+
+- name: Enable function (Fn) key as standard function
+  community.general.osx_defaults:
+    domain: NSGlobalDomain
+    key: com.apple.keyboard.fnState
+    type: bool
+    value: "{{ keyboard_fn_state }}"
+    state: present
+
+- name: Set key repeat rate
+  community.general.osx_defaults:
+    domain: NSGlobalDomain
+    key: KeyRepeat
+    type: float
+    value: "{{ keyboard_key_repeat }}"
+    state: present
+
+- name: Set initial key repeat delay
+  community.general.osx_defaults:
+    domain: NSGlobalDomain
+    key: InitialKeyRepeat
+    type: float
+    value: "{{ keyboard_initial_key_repeat }}"
+    state: present

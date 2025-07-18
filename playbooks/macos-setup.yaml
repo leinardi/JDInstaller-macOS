@@ -1,0 +1,23 @@
+---
+- name: MacOS Playbook Initialization
+  hosts: localhost
+
+  pre_tasks:
+    - name: Import pre_tasks
+      ansible.builtin.import_role:
+        name: macos_assert_and_xdg
+
+- name: Import common tasks
+  import_playbook: common.yaml
+  tags: common
+  when: common_enabled | bool
+
+- name: Import development tasks
+  import_playbook: development.yaml
+  tags: development
+  when: development_enabled | bool
+
+- name: Import work tasks
+  import_playbook: work.yaml
+  tags: work
+  when: work_enabled | bool

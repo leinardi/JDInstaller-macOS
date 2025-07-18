@@ -1,0 +1,21 @@
+---
+- name: Ensure Infat is installed
+  community.general.homebrew:
+    name: infat
+    state: present
+
+- name: Associate document/code UTIs with {{ file_associations_editor_app_name }}
+  ansible.builtin.include_tasks: associate_type.yaml
+  loop: "{{ file_associations_editor_types }}"
+  loop_control:
+    loop_var: filetype
+  vars:
+    target_app: "{{ file_associations_editor_app_name }}"
+
+- name: Associate media UTIs with {{ file_associations_media_app_name }}
+  ansible.builtin.include_tasks: associate_type.yaml
+  loop: "{{ file_associations_media_types }}"
+  loop_control:
+    loop_var: filetype
+  vars:
+    target_app: "{{ file_associations_media_app_name }}"

@@ -1,0 +1,25 @@
+---
+- name: Install linearmouse via Homebrew Cask
+  community.general.homebrew_cask:
+    name: "{{ linearmouse_cask_name }}"
+    state: present
+    update_homebrew: true
+
+- name: Ensure LinearMouse config directory exists
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/linearmouse"
+    state: directory
+    mode: "0755"
+
+- name: Check for existing LinearMouse configuration
+  ansible.builtin.stat:
+    path: "{{ ansible_env.HOME }}/.config/linearmouse/linearmouse.json"
+  register: linearmouse_config
+
+- name: Copy default linearmouse.json if missing
+  ansible.builtin.copy:
+    src: linearmouse/linearmouse.json
+    dest: "{{ ansible_env.HOME }}/.config/linearmouse/linearmouse.json"
+    force: no
+    mode: "0644"
+  when: not linearmouse_config.stat.exists

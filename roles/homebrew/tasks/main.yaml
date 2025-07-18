@@ -1,0 +1,22 @@
+---
+- name: Check if Homebrew is already installed
+  ansible.builtin.stat:
+    path: "{{ homebrew_prefix }}/bin/brew"
+  register: brew_stat
+
+- name: Install Homebrew if missing
+  ansible.builtin.shell: >
+    /bin/bash -c "$(curl -fsSL {{ homebrew_install_url }})"
+  args:
+    creates: "{{ homebrew_prefix }}/bin/brew"
+    executable: /bin/bash
+  when: not brew_stat.stat.exists
+
+- name: Remind to add Homebrew to your shell rc
+  ansible.builtin.debug:
+    msg: |
+      Homebrew has been installed at {{ homebrew_prefix }}.
+      To enable it in your shell, add the following to your rc (e.g. ~/.bashrc):
+
+        eval "$({{ homebrew_prefix }}/bin/brew shellenv)"
+  when: not brew_stat.stat.exists

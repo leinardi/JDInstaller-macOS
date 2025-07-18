@@ -1,0 +1,176 @@
+# Automatically generated from roles' defaults
+---
+# Variables from roles/alt_tab
+alt_tab_enabled: true
+alt_tab_cask_name: "alt-tab"
+
+# Variables from roles/common
+common_enabled: true
+common_formulae:
+  - bash
+  - bash-completion
+  - gnupg
+  - gnutls
+  - htop
+  - terminal-notifier
+  - the_silver_searcher
+  - tree
+  - vim
+  - wget
+
+common_default_shell_path: "/opt/homebrew/bin/bash"
+
+# Variables from roles/coteditor
+coteditor_enabled: true
+coteditor_cask_name: "coteditor"
+
+# Variables from roles/desktop_and_dock
+desktop_and_dock_enabled: true
+desktop_dock_orientation: "right"
+desktop_dock_tilesize: 54
+desktop_dock_autohide: false
+desktop_dock_scroll_to_open: true
+desktop_dock_mru_spaces: false
+desktop_dock_expose_group_apps: false
+desktop_dock_spaces_switch_on_activate: false
+desktop_dock_spans_displays: true
+desktop_dock_enter_mission_control_by_top_window_drag: false
+
+# Variables from roles/development
+development_enabled: true
+development_formulae:
+  - actionlint
+  - ansible
+  - ansible-lint
+  - git
+  - jq
+  - mypy
+  - pgformatter
+  - pinentry
+  - pinentry-mac
+  - poetry
+  - pre-commit
+  - prettier
+  - python@3.12
+  - python
+  - reviewdog
+  - shellcheck
+  - sqlfluff
+  - tig
+  - yamllint
+
+# Variables from roles/docker
+docker_enabled: true
+docker_cask_name: "docker"
+
+# Variables from roles/file_associations
+file_associations_enabled: true
+file_associations_editor_app_name: CotEditor
+file_associations_media_app_name: VLC
+file_associations_editor_types:
+  - json
+  - plain-text
+  - source-code
+  - text
+  - xml
+file_associations_media_types:
+  - aiff
+  - avi
+  - m3u-playlist
+  - midi
+  - movie
+  - mpeg
+  - mpeg2-transport-stream
+  - mpeg2-video
+  - mpeg4-audio
+  - mpeg4-movie
+  - org.matroska.mka
+  - org.matroska.mkv
+  - playlist
+  - quicktime-movie
+  - video
+  - wav
+
+# Variables from roles/finder
+finder_enabled: true
+finder_show_pathbar: true
+finder_sort_folders_first: true
+finder_enable_extension_change_warning: false
+finder_save_to_cloud: false
+
+# Variables from roles/firefox
+firefox_enabled: true
+firefox_cask_name: "firefox"
+
+# Variables from roles/ghostty
+ghostty_enabled: true
+ghostty_cask_name: "ghostty"
+
+# Variables from roles/gimp
+gimp_enabled: true
+gimp_cask_name: "gimp"
+
+# Variables from roles/homebrew
+homebrew_enabled: true
+homebrew_install_url: "https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh"
+homebrew_prefix: "/opt/homebrew"
+
+# Variables from roles/karabiner_elements
+karabiner_elements_enabled: true
+karabiner_elements_cask_name: "karabiner-elements"
+
+# Variables from roles/kdiff3
+kdiff3_enabled: true
+kdiff3_cask_name: "kdiff3"
+
+# Variables from roles/keka
+keka_enabled: true
+keka_cask_name: "keka"
+
+# Variables from roles/keyboard
+keyboard_enabled: true
+keyboard_press_and_hold_enabled: false
+keyboard_fn_state: true
+keyboard_key_repeat: 2.0
+keyboard_initial_key_repeat: 25.0
+
+# Variables from roles/libreoffice
+libreoffice_enabled: true
+libreoffice_cask_name: "libreoffice"
+
+# Variables from roles/linearmouse
+linearmouse_enabled: true
+linearmouse_cask_name: "linearmouse"
+
+# Variables from roles/mattermost
+mattermost_enabled: true
+mattermost_cask_name: "mattermost"
+
+# Variables from roles/mouse
+mouse_enabled: true
+mouse_linear: true
+mouse_scaling: 0.6875
+mouse_natural_scroll: false
+
+# Variables from roles/rectangle
+rectangle_enabled: true
+rectangle_cask_name: "rectangle"
+
+# Variables from roles/stats
+stats_enabled: true
+stats_cask_name: "stats"
+
+# Variables from roles/utm
+utm_enabled: true
+utm_cask_name: "utm"
+
+# Variables from roles/vlc
+vlc_enabled: true
+vlc_cask_name: "vlc"
+
+# Variables from roles/work
+work_enabled: true
+work_formulae:
+  - awscli
+  - cfn-lint
+  - python-packaging

@@ -1,0 +1,30 @@
+---
+- name: Assert we’re on macOS
+  ansible.builtin.assert:
+    that:
+      - ansible_os_family == 'Darwin'
+    fail_msg: "This role only applies to macOS hosts."
+
+- name: Assert we’re on Apple Silicon (arm64)
+  ansible.builtin.assert:
+    that:
+      - ansible_machine == 'arm64'
+    fail_msg: "This playbook supports only Apple Silicon (arm64) Macs."
+
+- name: Determine XDG_DATA_HOME value for current installation
+  ansible.builtin.set_fact:
+    xdg_data_home: >
+      {{ lookup('env','XDG_DATA_HOME')
+         | default(ansible_env.HOME + '/.local/share', true) }}
+
+- name: Determine XDG_CONFIG_HOME value for current installation
+  ansible.builtin.set_fact:
+    xdg_config_home: >
+      {{ lookup('env','XDG_CONFIG_HOME')
+         | default(ansible_env.HOME + '/.config', true) }}
+
+- name: Determine XDG_STATE_HOME value for current installation
+  ansible.builtin.set_fact:
+    xdg_state_home: >
+      {{ lookup('env','XDG_STATE_HOME')
+         | default(ansible_env.HOME + '/.local/state', true) }}

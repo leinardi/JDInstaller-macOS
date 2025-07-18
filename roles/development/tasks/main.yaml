@@ -1,0 +1,16 @@
+---
+- name: Tap the reviewdog Homebrew repository
+  community.general.homebrew_tap:
+    name: reviewdog/tap
+    state: present
+  when: "'reviewdog' in development_formulae"
+
+- name: Update Homebrew and install development formulae
+  community.general.homebrew:
+    name: "{{ development_formulae }}"
+    state: present
+    update_homebrew: true
+
+- name: Upgrade all installed Homebrew formulae
+  community.general.homebrew:
+    upgrade_all: true

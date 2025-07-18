@@ -1,0 +1,27 @@
+---
+file_associations_enabled: true
+file_associations_editor_app_name: CotEditor
+file_associations_media_app_name: VLC
+file_associations_editor_types:
+  - json
+  - plain-text
+  - source-code
+  - text
+  - xml
+file_associations_media_types:
+  - aiff
+  - avi
+  - m3u-playlist
+  - midi
+  - movie
+  - mpeg
+  - mpeg2-transport-stream
+  - mpeg2-video
+  - mpeg4-audio
+  - mpeg4-movie
+  - org.matroska.mka
+  - org.matroska.mkv
+  - playlist
+  - quicktime-movie
+  - video
+  - wav

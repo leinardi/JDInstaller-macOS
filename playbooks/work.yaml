@@ -1,0 +1,9 @@
+---
+- name: MacOS Work Playbook
+  hosts: localhost
+  roles:
+    - role: work
+      when: work_enabled | bool
+    - role: mattermost
+      tags: mattermost
+      when: mattermost_enabled | bool

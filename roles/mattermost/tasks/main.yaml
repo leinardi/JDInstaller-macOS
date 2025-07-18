@@ -1,0 +1,6 @@
+---
+- name: Install mattermost via Homebrew Cask
+  community.general.homebrew_cask:
+    name: "{{ mattermost_cask_name }}"
+    state: present
+    update_homebrew: true

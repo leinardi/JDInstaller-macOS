@@ -1,0 +1,81 @@
+---
+- name: Set Dock orientation
+  community.general.osx_defaults:
+    domain: com.apple.dock
+    key: orientation
+    type: string
+    value: "{{ desktop_dock_orientation }}"
+    state: present
+  notify: Restart Dock
+
+- name: Set Dock tile size
+  community.general.osx_defaults:
+    domain: com.apple.dock
+    key: tilesize
+    type: int
+    value: "{{ desktop_dock_tilesize }}"
+    state: present
+  notify: Restart Dock
+
+- name: Enable/disable Dock autohide
+  community.general.osx_defaults:
+    domain: com.apple.dock
+    key: autohide
+    type: bool
+    value: "{{ desktop_dock_autohide }}"
+    state: present
+  notify: Restart Dock
+
+- name: Enable scroll‑to‑open on Dock icons
+  community.general.osx_defaults:
+    domain: com.apple.dock
+    key: scroll-to-open
+    type: bool
+    value: "{{ desktop_dock_scroll_to_open }}"
+    state: present
+  notify: Restart Dock
+
+- name: Keep Spaces in fixed order (no MRU)
+  community.general.osx_defaults:
+    domain: com.apple.dock
+    key: mru-spaces
+    type: bool
+    value: "{{ desktop_dock_mru_spaces }}"
+    state: present
+  notify: Restart Dock
+
+- name: Disable grouping windows by app in Mission Control
+  community.general.osx_defaults:
+    domain: com.apple.dock
+    key: expose-group-apps
+    type: bool
+    value: "{{ desktop_dock_expose_group_apps }}"
+    state: present
+  notify: Restart Dock
+
+- name: Disable auto‑switch to app’s Space on activate
+  community.general.osx_defaults:
+    domain: NSGlobalDomain
+    key: AppleSpacesSwitchOnActivate
+    type: bool
+    value: "{{ desktop_dock_spaces_switch_on_activate }}"
+    state: present
+  notify: Restart Dock
+
+- name: Disable spanning Spaces across displays
+  community.general.osx_defaults:
+    domain: com.apple.spaces
+    key: spans-displays
+    type: bool
+    value: "{{ desktop_dock_spans_displays }}"
+    state: present
+  notify: Restart Dock
+
+- name: Disable drag‑to‑top to enter Mission Control
+  community.general.osx_defaults:
+    domain: com.apple.dock
+    key: enterMissionControlByTopWindowDrag
+    type: bool
+    value: "{{ desktop_dock_enter_mission_control_by_top_window_drag }}"
+    state: present
+  notify: Restart Dock

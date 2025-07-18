@@ -1,0 +1,11 @@
+---
+desktop_and_dock_enabled: true
+desktop_dock_orientation: "right"
+desktop_dock_tilesize: 54
+desktop_dock_autohide: false
+desktop_dock_scroll_to_open: true
+desktop_dock_mru_spaces: false
+desktop_dock_expose_group_apps: false
+desktop_dock_spaces_switch_on_activate: false
+desktop_dock_spans_displays: true
+desktop_dock_enter_mission_control_by_top_window_drag: false

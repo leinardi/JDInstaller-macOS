@@ -1,0 +1,6 @@
+---
+work_enabled: true
+work_formulae:
+  - awscli
+  - cfn-lint
+  - python-packaging

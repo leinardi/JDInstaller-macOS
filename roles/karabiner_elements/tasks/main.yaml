@@ -1,0 +1,25 @@
+---
+- name: Install karabiner-elements via Homebrew Cask
+  community.general.homebrew_cask:
+    name: "{{ karabiner_elements_cask_name }}"
+    state: present
+    update_homebrew: true
+
+- name: Ensure Karabiner config directory exists
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/karabiner"
+    state: directory
+    mode: "0700"
+
+- name: Check for existing Karabiner configuration
+  ansible.builtin.stat:
+    path: "{{ ansible_env.HOME }}/.config/karabiner/karabiner.json"
+  register: karabiner_config
+
+- name: Copy default karabiner.json if missing
+  ansible.builtin.copy:
+    src: karabiner/karabiner.json
+    dest: "{{ ansible_env.HOME }}/.config/karabiner/karabiner.json"
+    force: no
+    mode: "0644"
+  when: not karabiner_config.stat.exists

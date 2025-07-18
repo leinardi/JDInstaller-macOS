@@ -1,0 +1,23 @@
+---
+- name: Update Homebrew and install common formulae
+  community.general.homebrew:
+    name: "{{ common_formulae }}"
+    state: present
+    update_homebrew: true
+
+- name: Upgrade all installed Homebrew formulae
+  community.general.homebrew:
+    upgrade_all: true
+
+- name: Ensure selected shell is a valid login shell
+  ansible.builtin.lineinfile:
+    path: /etc/shells
+    line: "{{ common_default_shell_path }}"
+    state: present
+  become: true
+
+- name: Change default shell
+  ansible.builtin.user:
+    name: "{{ ansible_user_id }}"
+    shell: "{{ common_default_shell_path }}"
+  become: true
