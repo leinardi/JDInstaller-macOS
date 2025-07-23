@@ -300,6 +300,7 @@
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
+                                            "^com\\.utmapp\\.UTM$",
                                             "^com\\.mitchellh\\.ghostty$"
                                         ],
                                         "type": "frontmost_application_unless"
@@ -575,6 +576,7 @@
                                             "^com\\.jetbrains\\.pycharm$",
                                             "^com\\.jetbrains\\.pycharm\\.ce$",
                                             "^com\\.jetbrains\\.goland$",
+                                            "^com\\.utmapp\\.UTM$",
                                             "^com\\.mitchellh\\.ghostty$"
                                         ],
                                         "type": "frontmost_application_unless"
@@ -610,6 +612,7 @@
                                             "^com\\.jetbrains\\.pycharm$",
                                             "^com\\.jetbrains\\.pycharm\\.ce$",
                                             "^com\\.jetbrains\\.goland$",
+                                            "^com\\.utmapp\\.UTM$",
                                             "^com\\.mitchellh\\.ghostty$"
                                         ],
                                         "type": "frontmost_application_unless"
@@ -645,6 +648,7 @@
                                             "^com\\.jetbrains\\.pycharm$",
                                             "^com\\.jetbrains\\.pycharm\\.ce$",
                                             "^com\\.jetbrains\\.goland$",
+                                            "^com\\.utmapp\\.UTM$",
                                             "^com.mitchellh.ghostty$"
                                         ],
                                         "type": "frontmost_application_unless"
@@ -677,6 +681,7 @@
                                             "^com\\.jetbrains\\.pycharm$",
                                             "^com\\.jetbrains\\.pycharm\\.ce$",
                                             "^com\\.jetbrains\\.goland$",
+                                            "^com\\.utmapp\\.UTM$",
                                             "^com.mitchellh.ghostty$"
                                         ],
                                         "type": "frontmost_application_unless"
@@ -703,6 +708,7 @@
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
+                                            "^com\\.utmapp\\.UTM$",
                                             "^com\\.apple\\.Terminal$"
                                         ],
                                         "type": "frontmost_application_unless"
@@ -724,6 +730,7 @@
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
+                                            "^com\\.utmapp\\.UTM$",
                                             "^com\\.apple\\.Terminal$"
                                         ],
                                         "type": "frontmost_application_unless"
@@ -792,6 +799,7 @@
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
+                                            "^com\\.utmapp\\.UTM$",
                                             "^com\\.mitchellh\\.ghostty$"
                                         ],
                                         "type": "frontmost_application_unless"
@@ -816,6 +824,7 @@
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
+                                            "^com\\.utmapp\\.UTM$",
                                             "^com\\.mitchellh\\.ghostty$"
                                         ],
                                         "type": "frontmost_application_unless"
