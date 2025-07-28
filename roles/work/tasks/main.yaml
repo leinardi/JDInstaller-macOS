@@ -5,6 +5,22 @@
     state: present
     update_homebrew: true
 
+- name: Check if libpq is already linked into /opt/homebrew
+  ansible.builtin.stat:
+    path: /opt/homebrew/include/libpq-fe.h
+  register: libpq_linked
+  when:
+    - "'libpq' in work_formulae"
+    - "'postgres' not in work_formulae"
+
+- name: Link libpq (keg-only) into Homebrew prefix
+  ansible.builtin.command: brew link libpq --force
+  changed_when: true
+  when:
+    - "'libpq' in work_formulae"
+    - "'postgres' not in work_formulae"
+    - not libpq_linked.stat.exists
+
 - name: Upgrade all installed Homebrew formulae
   community.general.homebrew:
     upgrade_all: true

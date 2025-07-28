@@ -177,4 +177,5 @@ work_enabled: true
 work_formulae:
   - awscli
   - cfn-lint
+  - libpq # psql
   - python-packaging
