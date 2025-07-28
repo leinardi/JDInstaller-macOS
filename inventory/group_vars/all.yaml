@@ -4,6 +4,10 @@
 alt_tab_enabled: true
 alt_tab_cask_name: "alt-tab"
 
+# Variables from roles/aws_session_manager_plugin
+aws_session_manager_plugin_enabled: true
+aws_session_manager_plugin_cask_name: "session-manager-plugin"
+
 # Variables from roles/common
 common_enabled: true
 common_formulae:

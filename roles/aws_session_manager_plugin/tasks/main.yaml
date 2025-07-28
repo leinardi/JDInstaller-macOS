@@ -1,0 +1,6 @@
+---
+- name: Install aws session-manager-plugin via Homebrew Cask
+  community.general.homebrew_cask:
+    name: "{{ aws_session_manager_plugin_cask_name }}"
+    state: present
+    update_homebrew: true

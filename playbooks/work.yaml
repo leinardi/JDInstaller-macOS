@@ -4,6 +4,9 @@
   roles:
     - role: work
       when: work_enabled | bool
+    - role: aws_session_manager_plugin
+      tags: aws_session_manager_plugin
+      when: aws_session_manager_plugin_enabled | bool
     - role: mattermost
       tags: mattermost
       when: mattermost_enabled | bool

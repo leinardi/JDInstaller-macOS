@@ -1,0 +1,3 @@
+---
+aws_session_manager_plugin_enabled: true
+aws_session_manager_plugin_cask_name: "session-manager-plugin"
