@@ -62,6 +62,7 @@ development_formulae:
   - sqlfluff
   - tig
   - yamllint
+  - yq
 
 # Variables from roles/docker
 docker_enabled: true

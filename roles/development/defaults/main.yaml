@@ -20,3 +20,4 @@ development_formulae:
   - sqlfluff
   - tig
   - yamllint
+  - yq
