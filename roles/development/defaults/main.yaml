@@ -4,17 +4,21 @@ development_formulae:
   - actionlint
   - ansible
   - ansible-lint
+  - cairo
+  - gdk-pixbuf
   - git
   - jq
   - mypy
+  - pango
   - pgformatter
   - pinentry
   - pinentry-mac
+  - pkg-config
   - poetry
   - pre-commit
   - prettier
-  - python@3.12
   - python
+  - python@3.12
   - reviewdog
   - shellcheck
   - sqlfluff
