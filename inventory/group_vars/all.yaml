@@ -63,6 +63,7 @@ development_formulae:
   - python@3.12
   - reviewdog
   - shellcheck
+  - sipcalc
   - sqlfluff
   - tig
   - yamllint
