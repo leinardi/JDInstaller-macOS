@@ -3,5 +3,7 @@ work_enabled: true
 work_formulae:
   - awscli
   - cfn-lint
+  - gh
   - libpq # psql
+  - opentofu
   - python-packaging
