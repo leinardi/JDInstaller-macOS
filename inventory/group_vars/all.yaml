@@ -187,3 +187,5 @@ work_formulae:
   - libpq # psql
   - opentofu
   - python-packaging
+  - terraform-docs
+  - tflint
