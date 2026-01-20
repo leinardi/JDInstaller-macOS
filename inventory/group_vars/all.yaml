@@ -13,6 +13,7 @@ common_enabled: true
 common_formulae:
   - bash
   - bash-completion
+  - bitwarden-cli
   - gnupg
   - gnutls
   - htop
