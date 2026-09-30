@@ -1,4 +1,4 @@
-<!-- [![Ubuntu test](https://github.com/leinardi/JDInstaller/actions/workflows/ubuntu-test.yaml/badge.svg?branch=release)](https://github.com/leinardi/JDInstaller-macOS/actions/workflows/ubuntu-test.yaml) [![CI release](https://github.com/leinardi/JDInstaller-macOS/actions/workflows/ci.yaml/badge.svg?branch=release)](https://github.com/leinardi/JDInstaller-macOS/actions/workflows/ci.yaml) -->
+[![CI](https://github.com/leinardi/JDInstaller-macOS/actions/workflows/ci.yaml/badge.svg)](https://github.com/leinardi/JDInstaller-macOS/actions/workflows/ci.yaml)
 
 # JDInstaller (macOS Edition)
 
@@ -53,14 +53,14 @@ Clone this repository:
 ```bash
 git clone https://github.com/leinardi/JDInstaller-macOS.git
 cd JDInstaller-macOS
-````
+```
 
 ### Run the Playbook
 
 Use the setup script to install Homebrew, Ansible, and required collections:
 
 ```bash
-./macos-setup.sh
+./install_ansible.sh
 ```
 
 Once Ansible is installed, you can run the main playbook:
@@ -71,8 +71,8 @@ ansible-playbook playbooks/macos-setup.yaml --ask-become-pass
 
 This command will:
 
-* Prompt for your sudo password
-* Run only the roles you’ve enabled in `inventory/group_vars/all.yaml`
+- Prompt for your sudo password
+- Run only the roles you’ve enabled in `inventory/group_vars/all.yaml`
 
 ### Run Single Roles
 
@@ -97,12 +97,12 @@ Each task is broken into reusable Ansible roles, all located under `roles/`. You
 
 Examples of included roles:
 
-* `homebrew`: Installs Homebrew and essential formulae
-* `common`: Installs CLI tools like `tree`, `git`, `vim`
-* `firefox`, `vlc`, etc.: Install GUI applications via Homebrew Cask
-* `desktop_and_dock`: Customizes Dock, Mission Control, and Spaces
-* `keyboard`, `mouse`, `finder`: System UI/UX preferences
-* `file_associations`: Uses [`infat`](https://github.com/philocalyst/infat) to configure default apps
+- `homebrew`: Installs Homebrew and essential formulae
+- `common`: Installs CLI tools like `tree`, `git`, `vim`
+- `firefox`, `vlc`, etc.: Install GUI applications via Homebrew Cask
+- `desktop_and_dock`: Customizes Dock, Mission Control, and Spaces
+- `keyboard`, `mouse`, `finder`: System UI/UX preferences
+- `file_associations`: Uses [`infat`](https://github.com/philocalyst/infat) to configure default apps
 
 ---
 
@@ -112,21 +112,15 @@ Bug fixes and improvements are welcome!
 
 Please note:
 
-* This repo is very opinionated. I may not accept changes that go against its purpose.
-* You’re welcome to contribute **additional roles**, but they must be **disabled by default**.
+- This repo is very opinionated. I may not accept changes that go against its purpose.
+- You’re welcome to contribute **additional roles**, but they must be **disabled by default**.
 
 **Before opening a pull request**, open an issue to discuss what you want to add.
 
-This project uses [pre-commit](https://pre-commit.com/) for basic checks:
-
-```bash
-brew install pre-commit
-make install-pre-commit
-make check
-```
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the setup, the checks to run and the commit message rules.
 
 ---
 
 ## Acknowledgements
 
-* Based on [JDInstaller for Ubuntu](https://github.com/leinardi/JDInstaller)
+- Based on [JDInstaller for Ubuntu](https://github.com/leinardi/JDInstaller)

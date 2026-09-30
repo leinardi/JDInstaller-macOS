@@ -27,10 +27,10 @@ install_ansible() {
   fi
 }
 
-# Function: Install Ansible collections from requirements.yaml
+# Function: Install Ansible collections from requirements.yml
 install_requirements() {
-  echo "Installing Ansible collections from requirements.yaml..."
-  ansible-galaxy collection install -r requirements.yaml
+  echo "Installing Ansible collections from requirements.yml..."
+  ansible-galaxy collection install -r requirements.yml
 }
 
 # Function: Print final instructions

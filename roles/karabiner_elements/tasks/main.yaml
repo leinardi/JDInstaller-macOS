@@ -20,6 +20,6 @@
   ansible.builtin.copy:
     src: karabiner/karabiner.json
     dest: "{{ ansible_env.HOME }}/.config/karabiner/karabiner.json"
-    force: no
+    force: false
     mode: "0644"
   when: not karabiner_config.stat.exists

@@ -20,6 +20,6 @@
   ansible.builtin.copy:
     src: ghostty/config
     dest: "{{ ansible_env.HOME }}/.config/ghostty/config"
-    force: no
+    force: false
     mode: "0644"
   when: not ghostty_config.stat.exists

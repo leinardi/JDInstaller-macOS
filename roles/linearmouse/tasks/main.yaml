@@ -20,6 +20,6 @@
   ansible.builtin.copy:
     src: linearmouse/linearmouse.json
     dest: "{{ ansible_env.HOME }}/.config/linearmouse/linearmouse.json"
-    force: no
+    force: false
     mode: "0644"
   when: not linearmouse_config.stat.exists
