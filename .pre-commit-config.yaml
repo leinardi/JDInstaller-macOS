@@ -1,4 +1,41 @@
+---
+default_install_hook_types: [pre-commit, commit-msg]
+
 repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-merge-conflict
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-yaml
+        exclude: ^mkdocs\.ya?ml$
+      - id: check-json
+      - id: check-toml
+      - id: check-added-large-files
+  - repo: https://github.com/checkmake/checkmake.git
+    rev: v0.3.2
+    hooks:
+      - id: checkmake
+  - repo: https://github.com/rhysd/actionlint
+    rev: v1.7.12
+    hooks:
+      - id: actionlint
+        name: actionlint
+        files: ^\.github/workflows/.*\.(yml|yaml)$
+        args: ["-shellcheck", "shellcheck -S error"]
+      - id: actionlint
+        alias: actionlint-oneline
+        name: actionlint (one line per one error)
+        files: ^\.github/workflows/.*\.(yml|yaml)$
+        args: ["-oneline", "-shellcheck", "shellcheck -S error"]
+        stages: [manual]
+  - repo: https://github.com/DavidAnson/markdownlint-cli2
+    rev: v0.23.3
+    hooks:
+      - id: markdownlint-cli2
+        additional_dependencies:
+          - markdownlint-rule-table-format@1.0.3
   - repo: local
     hooks:
       - id: generate-group-vars
@@ -12,14 +49,14 @@ repos:
         entry: shellcheck
         language: system
         types: [shell]
-        args: ["-e", "SC2148"]
+        args: ["-x"]
       - id: shellcheck
         alias: shellcheck-diff-output
         name: shellcheck (diff output)
         entry: shellcheck
         language: system
         types: [shell]
-        args: ["-f", "diff", "-e", "SC2148"]
+        args: ["-f", "diff", "-x"]
         stages: [manual]
       - id: shellcheck
         alias: shellcheck-json-output
@@ -27,43 +64,40 @@ repos:
         entry: shellcheck
         language: system
         types: [shell]
-        args: ["-f", "json", "-e", "SC2148"]
+        args: ["-f", "json", "-x"]
         stages: [manual]
       - id: prettier-yaml
         name: prettier-yaml
         entry: prettier
         language: node
-        additional_dependencies: ["prettier@3.5.3"]
+        additional_dependencies: ["prettier@3.7.4"]
         files: \.(yml|yaml)$
+        exclude: ^roles/
         args: ["--write"]
-  - repo: https://github.com/rhysd/actionlint
-    rev: v1.7.7
-    hooks:
-      - id: actionlint
-        name: actionlint
-        files: ^\.github/workflows/.*\.(yml|yaml)$
-        args: ["-shellcheck", "shellcheck -S error"]
-      - id: actionlint
-        alias: actionlint-oneline
-        name: actionlint (one line per one error)
-        files: ^\.github/workflows/.*\.(yml|yaml)$
-        args: ["-oneline", "-shellcheck", "shellcheck -S error"]
-        stages: [manual]
   - repo: https://github.com/ansible/ansible-lint
-    rev: v25.5.0
+    rev: v26.9.0
     hooks:
+      - id: ansible-lint
+        alias: ansible-lint-fix
+        name: ansible-lint-fix
+        always_run: false
+        files: ^(playbooks|roles|inventory)/.*\.(ya?ml)$
+        exclude: ^roles/.*/(files|templates)/|^\.github/|^docs/|^public/|^mkdocs\.ya?ml$
+        args: [--fix]
       - id: ansible-lint
         name: ansible-lint
         always_run: false
-        files: \.(yml|yaml)$
-        exclude: ^\.github/.*
+        files: ^(playbooks|roles|inventory)/.*\.(ya?ml)$
+        exclude: ^roles/.*/(files|templates)/|^\.github/|^docs/|^public/|^mkdocs\.ya?ml$
       - id: ansible-lint
         alias: ansible-lint-parseable
         name: "ansible-lint (parseable output)"
+        files: ^(playbooks|roles|inventory)/.*\.(ya?ml)$
+        exclude: ^roles/.*/(files|templates)/|^\.github/|^docs/|^public/|^mkdocs\.ya?ml$
         args: ["-p"]
         stages: [manual]
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.37.1
+    rev: v1.38.0
     hooks:
       - id: yamllint
       - id: yamllint
@@ -71,3 +105,9 @@ repos:
         name: "yamllint (parsable output)"
         args: ["--format", "parsable"]
         stages: [manual]
+  - repo: https://github.com/compilerla/conventional-pre-commit
+    rev: v4.4.0
+    hooks:
+      - id: conventional-pre-commit
+        stages: [commit-msg]
+        args: ["--force-scope"]
