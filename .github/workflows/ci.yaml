@@ -98,6 +98,13 @@ jobs:
         with:
           fetch-depth: 0
 
+      # ansible-lint's pre-commit hook declares language_version: python3.14, which the runner
+      # image lacks.
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.14"
+
       - name: Run ansible-lint via pre-commit + reviewdog
         uses: leinardi/gha-pre-commit-reviewdog-actions/ansible-lint@68bf8e338b79df404181ceef655ae02f1c8edb8a # v1.0.2
         with:

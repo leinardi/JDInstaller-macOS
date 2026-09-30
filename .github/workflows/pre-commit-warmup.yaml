@@ -15,3 +15,6 @@ permissions:
 jobs:
   warm-pre-commit-cache:
     uses: leinardi/gh-reusable-workflows/.github/workflows/pre-commit-warmup.yaml@4b8d094239089d9f91fd15b929db30fcb2a3c118 # v1.3.1
+    with:
+      # ansible-lint's pre-commit hook declares language_version: python3.14.
+      python_version: "3.14"
