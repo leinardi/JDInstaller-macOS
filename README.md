@@ -2,12 +2,14 @@
 
 # JDInstaller (macOS Edition)
 
-This Ansible playbook automates the setup of a fresh **macOS** installation according to my personal preferences. It is based on the
-original [JDInstaller for Ubuntu](https://github.com/leinardi/JDInstaller), but repurposed for macOS.
+This Ansible playbook automates the setup of a fresh **macOS** installation according to my personal
+preferences. It is based on the original
+[JDInstaller for Ubuntu](https://github.com/leinardi/JDInstaller), but repurposed for macOS.
 
-The configuration is very **opinionated** and tailored for **Linux users who are forced to use macOS at work**, like me. I normally use GNOME and Linux, and
-macOS has very different defaults and shortcuts that interrupt my muscle memory. This setup attempts to fix that by making macOS behave **as close to GNOME as
-possible**.
+The configuration is very **opinionated** and tailored for **Linux users who are forced to use macOS
+at work**, like me. I normally use GNOME and Linux, and macOS has very different defaults and
+shortcuts that interrupt my muscle memory. This setup attempts to fix that by making macOS
+behave **as close to GNOME as possible**.
 
 Some examples:
 
@@ -16,19 +18,21 @@ Some examples:
 - Disables **Mission Control**, **long-press character selection**, and other macOS behaviors
 - Configures **function keys** and common preferences
 
-This may seem blasphemous to seasoned Mac users but, if you're a Linux person trying to survive macOS, this setup might feel like home.
+This may seem blasphemous to seasoned Mac users but, if you're a Linux person trying to survive
+macOS, this setup might feel like home.
 
-It can also be helpful for anyone looking to automate macOS configuration (e.g. installing Homebrew formulae, setting system defaults, etc.).
+It can also be helpful for anyone looking to automate macOS configuration (e.g. installing Homebrew
+formulae, setting system defaults, etc.).
 
 ---
 
 ## Table of Contents
 
 - [How to Use](#how-to-use)
-    - [Install Prerequisites](#install-prerequisites)
-    - [Download the Repository](#download-the-repository)
-    - [Run the Playbook](#run-the-playbook)
-    - [Run Single Roles](#run-single-roles)
+  - [Install Prerequisites](#install-prerequisites)
+  - [Download the Repository](#download-the-repository)
+  - [Run the Playbook](#run-the-playbook)
+  - [Run Single Roles](#run-single-roles)
 - [Roles](#roles)
 - [Contributions](#contributions)
 - [Acknowledgements](#acknowledgements)
@@ -92,8 +96,8 @@ ansible-playbook playbooks/macos-setup.yaml --ask-become-pass --tags "homebrew,c
 
 ## Roles
 
-Each task is broken into reusable Ansible roles, all located under `roles/`. You can enable or disable any role in `inventory/group_vars/all.yaml` using the
-`*_enabled` flags.
+Each task is broken into reusable Ansible roles, all located under `roles/`. You can enable or
+disable any role in `inventory/group_vars/all.yaml` using the `*_enabled` flags.
 
 Examples of included roles:
 
@@ -102,7 +106,8 @@ Examples of included roles:
 - `firefox`, `vlc`, etc.: Install GUI applications via Homebrew Cask
 - `desktop_and_dock`: Customizes Dock, Mission Control, and Spaces
 - `keyboard`, `mouse`, `finder`: System UI/UX preferences
-- `file_associations`: Uses [`infat`](https://github.com/philocalyst/infat) to configure default apps
+- `file_associations`: Uses [`infat`](https://github.com/philocalyst/infat) to configure default
+  apps
 
 ---
 
@@ -117,7 +122,8 @@ Please note:
 
 **Before opening a pull request**, open an issue to discuss what you want to add.
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for the setup, the checks to run and the commit message rules.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the setup, the checks to run and the commit message
+rules.
 
 ---
 
