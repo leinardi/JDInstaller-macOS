@@ -12,7 +12,7 @@ they are enabled by default.
 ## Common commands
 
 ```bash
-make install                  # install Homebrew and Ansible if missing, then run playbooks/macos-setup.yaml (asks for the sudo password)
+make install                  # install Homebrew and uv if missing, then run playbooks/macos-setup.yaml (asks for the sudo password)
 make install TAGS=firefox     # run a single role: every role is tagged with its own name
 make generate-group-vars      # regenerate inventory/group_vars/all.yaml from the role defaults
 make ansible-syntax-check     # syntax-check every playbook, collections from requirements.yml in .galaxy/
@@ -48,10 +48,10 @@ be skipped on a push. The other reviewdog jobs only annotate pull requests.
   generated, see below.
 - `generate-group-vars.sh` — concatenates every role's `defaults/main.yaml` into
   `inventory/group_vars/all.yaml`.
-- `install_ansible.sh` — installs Homebrew, then Ansible from Homebrew, then the collections in
-  `requirements.yml`.
-- `requirements.yml` — the Ansible collections the roles use. `requirements-ci.txt` — the
-  ansible-core CI checks the syntax with.
+- `install_uv.sh` — installs Homebrew, then uv from Homebrew. The make targets run ansible-core
+  through `uvx`, so the machine needs no Ansible of its own.
+- `requirements.yml` — the Ansible collections the roles use, installed into `.galaxy/`.
+  `requirements-ci.txt` — the ansible-core the make targets run, locally and in CI.
 - `scripts/check-license-headers.sh` — the license-header check.
 - `scripts/bootstrap-mk-common.sh`, `.mk/` — the shared make snippets from `leinardi/make-common`;
   `.mk/ansible.mk` is local.
@@ -107,9 +107,9 @@ Run before considering an edit done. `make check` applies to every row.
 | You edited | Run |
 | --- | --- |
 | `roles/**`, `playbooks/**`, `inventory/**`, `requirements.yml` | `make check`, `make ansible-syntax-check`; a role default also needs `make generate-group-vars`, committed with it |
-| a role's behaviour | the above, then `ansible-playbook playbooks/macos-setup.yaml --tags <role>` twice on a throwaway macOS VM: the second run reports no changes |
+| a role's behaviour | the above, then `make install TAGS=<role>` twice on a throwaway macOS VM: the second run reports no changes |
 | `generate-group-vars.sh` | `make generate-group-vars`: `inventory/group_vars/all.yaml` must not change unless intended |
-| `install_ansible.sh`, `.mk/ansible.mk`, `Makefile` | `make check` (shellcheck, checkmake), `make help`; `make install` only on a throwaway VM |
+| `install_uv.sh`, `.mk/ansible.mk`, `Makefile` | `make check` (shellcheck, checkmake), `make help`; `make install` only on a throwaway VM |
 | `scripts/check-license-headers.sh`, any new code file | `scripts/check-license-headers.sh`; for the script, a file without the header must still fail it |
 | `.github/workflows/**`, `.github/dependabot.yml` | `pre-commit run actionlint --all-files` |
 | `.pre-commit-config.yaml` | `make check`; a new hook a dedicated CI job runs is named in `pre-commit-all`'s `SKIP` |

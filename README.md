@@ -61,35 +61,34 @@ cd JDInstaller-macOS
 
 ### Run the Playbook
 
-Use the setup script to install Homebrew, Ansible, and required collections:
+Run the main playbook:
 
 ```bash
-./install_ansible.sh
-```
-
-Once Ansible is installed, you can run the main playbook:
-
-```bash
-ansible-playbook playbooks/macos-setup.yaml --ask-become-pass
+make install
 ```
 
 This command will:
 
+- Install Homebrew and [uv](https://docs.astral.sh/uv/) if they are missing (`install_uv.sh`)
+- Install the Ansible collections from `requirements.yml` into `.galaxy/`
 - Prompt for your sudo password
 - Run only the roles you’ve enabled in `inventory/group_vars/all.yaml`
+
+You don't need to install Ansible: `make` runs it with `uvx`, at the ansible-core version pinned in
+`requirements-ci.txt`, so an Ansible already on the machine is never used.
 
 ### Run Single Roles
 
 Each role is tagged. To run just one role:
 
 ```bash
-ansible-playbook playbooks/macos-setup.yaml --ask-become-pass --tags firefox
+make install TAGS=firefox
 ```
 
 To run multiple:
 
 ```bash
-ansible-playbook playbooks/macos-setup.yaml --ask-become-pass --tags "homebrew,common,development"
+make install TAGS=homebrew,common,development
 ```
 
 ---
