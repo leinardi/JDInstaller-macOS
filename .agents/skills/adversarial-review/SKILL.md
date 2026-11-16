@@ -131,19 +131,18 @@ framing, and name the triggering host state or value per candidate:
 
 ## Gates
 
-Do not re-run the repository's gates (`make check`, `make ansible-syntax-check`).
-The implementer is expected to run them and CI runs them again, but do not
-assume either happened: report the verification evidence you actually have
-(under adversarial-review-loop, `verification.txt` when supplied, which is the
-implementer's claim and not proof; when invoked directly, the CI status or gate
-output in the PR or session) and what is missing, such as a role's behavior
-change with no result from running `make install TAGS=<role>` twice on a
-throwaway macOS virtual machine (the second run must report no changes), or a
-change to `scripts/check-license-headers.sh` with no evidence that it still
-fails on a file without the header. A failure in that evidence caused by the
-change is a confirmed finding. Never say that a check you did not see passed.
-Judge whether the change's tests prove it: a behavior change needs a check
-that fails on the old code.
+Do not re-run the repository's gates (`make check`, `make ansible-syntax-check`). The implementer is
+expected to run them and CI runs them again, but do not assume either happened: report the
+verification evidence you actually have (under adversarial-review-loop, `verification.txt` when
+supplied, which is the implementer's claim and not proof; when invoked directly, the CI status or
+gate output in the PR or session) and what is missing, such as a role's behavior change with no
+result from running `make install TAGS=<role>` twice on a throwaway macOS virtual machine (the
+second run must report no changes), or a change to `scripts/check-license-headers.sh` with no
+evidence that it still fails on a file without the header. Judge what is missing against
+`AGENTS.md`'s *Validation matrix*: every changed path owes the checks its row names. A failure in
+that evidence caused by the change is a confirmed finding. Never say that a check you did not see
+passed. Judge whether the change's tests prove it: a behavior change needs a check that fails on the
+old code.
 
 Never run the playbook on the machine you are working on: it changes that
 machine. There is no focused runner for a role's behavior, so a suspected
